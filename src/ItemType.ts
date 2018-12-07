@@ -1,0 +1,32 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Mpg Item type
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+export class MpgItemType {
+    typeName: string
+    id: number
+    displayNameSingular: string
+    displayNamePlural: string
+    icon: string
+    static allTypes: MpgItemType[] = []
+    static lastId: number = 0
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // constructor
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    constructor (name: string, displayNameSingular: string, displayNamePlural: string,
+        icon: string) {
+            this.id = MpgItemType.lastId
+            MpgItemType.lastId += 1
+            this.typeName = name
+            this.displayNameSingular = displayNameSingular
+            this.displayNamePlural = displayNamePlural
+            this.icon = icon
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // create type
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static createType = (name: string, displayNameSingular: string, displayNamePlural: string,
+        icon: string) => {
+        const newType = new MpgItemType(name, displayNameSingular, displayNamePlural, icon)
+        MpgItemType.allTypes.push(newType)
+    }
+}
